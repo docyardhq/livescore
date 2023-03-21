@@ -1,27 +1,33 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
-import { Button } from '@mui/material';
 import Navbar from './components/NavBar';
 import MyCard from './components/MyCard';
 import { getMatches } from './api/API';
+import { Container, Grid } from '@mui/material'
 function App() {
+  const [matches, setMatches] = useState([]);
 
-  const[matches, setMatches]= useState([]);
-
-  useEffect(()=>
-  {
+  useEffect(() => {
     getMatches()
-    .then((data)=>setMatches(data.matches))
-    .catch(error=>alert("could not load data"));
+      .then((data) => {
+        console.log(data);
+        setMatches(data.matches);
+      })
+      .catch((error) => {});
   }, []);
+
   return (
     <div className="App">
-      <h1>Welcome to DocYard's live cricket score app</h1>
-      {
-        matches.map((match)=>(
-          <MyCard match="match"/>
-        ))
-      }
+      <Navbar></Navbar>
+      <Container>
+        <Grid container>
+          <Grid item xs={12}>
+            {matches.map((match) => (
+              <MyCard match={match}></MyCard>
+            ))}
+          </Grid>
+        </Grid>
+      </Container>
     </div>
   );
 }
