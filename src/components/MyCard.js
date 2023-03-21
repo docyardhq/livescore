@@ -1,17 +1,18 @@
+import React, { useState } from "react";
 import { 
-    Button, 
-    CardActions, 
-    CardContent, 
-    Dialog,  
+    Button,
+    Card,
+    CardActions,
+    CardContent,
+    Dialog,
     DialogActions,
     DialogContent,
     DialogContentText,
-    DialogTitle, 
+    DialogTitle,
+    Grid,
     Typography, 
-    Grid 
 } from '@mui/material';
-import React, {useState} from 'react';
-import Card from '@mui/material/Card';
+//import Card from '@mui/material/Card';
 import { getMatchDetail } from "../api/API";
 
 const MyCard = ({ match }) => {
@@ -127,4 +128,3 @@ const MyCard = ({ match }) => {
   };
   
   export default MyCard;
-  

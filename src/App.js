@@ -3,19 +3,17 @@ import './App.css';
 import Navbar from './components/NavBar';
 import MyCard from './components/MyCard';
 import { getMatches } from './api/API';
-import { Container, Grid } from '@mui/material'
+import { Container, Grid} from '@mui/material'
 function App() {
-  const [matches, setMatches] = useState([]);
 
-  useEffect(() => {
+  const[matches, setMatches]= useState([]);
+
+  useEffect(()=>
+  {
     getMatches()
-      .then((data) => {
-        console.log(data);
-        setMatches(data.matches);
-      })
-      .catch((error) => {});
+    .then((data)=>setMatches(data.matches))
+    .catch(error=>alert("could not load data"));
   }, []);
-
   return (
     <div className="App">
       <Navbar></Navbar>

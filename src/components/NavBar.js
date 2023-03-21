@@ -1,13 +1,13 @@
 import { AppBar, Button, IconButton, makeStyles, Toolbar, Typography } from "@mui/material";
 import React from "react";
 import MenuIcon from "@mui/icons-material/Menu";
+//import AppBar from "@mui/material";
 
 const useStyle = makeStyles((theme) => {
     console.log("STYLE", theme);
   });
   
   const Navbar = () => {
-    // eslint-disable-next-line
     const classes = useStyle();
   
     return (
